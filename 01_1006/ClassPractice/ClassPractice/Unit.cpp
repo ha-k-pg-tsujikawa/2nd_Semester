@@ -1,3 +1,4 @@
+#include "Common.h"
 #include "Unit.h"
 
 Unit::Unit()
@@ -15,4 +16,16 @@ Unit::Unit()
 Unit::~Unit()
 {
 
+}
+
+void Unit::PrintStatus()
+{
+	printf("hp  = %d\n", m_hp);
+	printf("str = %d\n", m_str);
+	printf("mag = %d\n", m_mag);
+	printf("tec = %d\n", m_tec);
+	printf("spd = %d\n", m_spd);
+	printf("def = %d\n", m_def);
+	printf("luc = %d\n", m_luc);
+	printf("mde = %d\n", m_mde);
 }
