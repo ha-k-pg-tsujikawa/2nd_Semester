@@ -1,4 +1,5 @@
 #include "Base.h"
+#include <stdio.h>
 
 Base::Base()
 {
@@ -19,6 +20,7 @@ Base::~Base()
 // 引数の矩形情報と、自分が当たっているか判定
 bool Base::CheckHit(int x, int y, int width, int height)
 {
+	printf("BaseクラスのCheckHit()\n");
 	// 何かしらの当たり判定
 	return false;
 }
