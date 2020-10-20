@@ -2,6 +2,8 @@
 #define ENEMY_H
 
 #include "Base.h"	// 基底クラスのヘッダー(クラスの設計情報をインクルード)
+#include <vector>
+#include <iostream>
 
 //-----------------------------
 //エネミークラス

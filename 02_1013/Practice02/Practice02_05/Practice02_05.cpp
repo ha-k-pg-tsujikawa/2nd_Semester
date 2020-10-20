@@ -30,6 +30,8 @@ int main()
     printf("MoveSpeed = %0.2f\n", enemy.GetMoveSpeed());
     printf("\n");
 
+    enemy.Exec();
+
     system("pause");
     return 0;
 }
