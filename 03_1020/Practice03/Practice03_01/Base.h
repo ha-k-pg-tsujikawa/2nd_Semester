@@ -10,7 +10,7 @@ public:
 
 public:
 	// ˆø”‚Ì‹éŒ`î•ñ‚ÆA©•ª‚ª“–‚½‚Á‚Ä‚¢‚é‚©”»’è
-	virtual bool CheckHit(int x, int y, int width, int height);
+	bool CheckHit(int x, int y, int width, int height);
 
 public:
 	void SetHp(int hp);
