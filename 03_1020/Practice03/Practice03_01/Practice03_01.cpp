@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "Player.h"
 #include "Enemy.h"
+#include "EnemyManager.h"
 
 void PrintHp(Base* target)
 {
@@ -15,6 +16,7 @@ void PrintHp(Base* target)
 
 int main()
 {
+    /*
     // Baseのポインタ変数配列
     Base* array[] =
     {
@@ -36,7 +38,7 @@ int main()
             }
         }
     }
-
+    
     // 実体の破棄
     for (int i = 0; i < 2; i++)
     {
@@ -48,6 +50,29 @@ int main()
     // 単体で実体化させることができなくなる
     //Base base;
     //Base* pBase = new Base();
+    */
+
+    // EnemyManagerを使ったEnemyクラスの管理の例
+    EnemyManager* enemyMng = new EnemyManager();
+    Base* pEnemy = nullptr;
+
+    // ステージ開始時点で初期化
+    enemyMng->CreateEnemy(0);
+    enemyMng->CreateEnemy(1);
+    pEnemy = enemyMng->CreateEnemy(2);
+    enemyMng->CreateEnemy(3);
+    enemyMng->CreateEnemy(4);
+    enemyMng->CreateEnemy(4);
+    enemyMng->CreateEnemy(4);
+
+    // 作成したエネミーに各処理を行わせる
+    enemyMng->Exec();
+    enemyMng->Draw();
+
+    // 指定したエネミーを削除
+    enemyMng->DestoryEnemy(pEnemy);
+    // 指定座標と接触しているエネミーを取得
+    pEnemy = enemyMng->CheckHit(10, 10, 20, 30);
 
     system("pause");
     return 0;
