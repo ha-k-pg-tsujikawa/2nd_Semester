@@ -16,12 +16,12 @@ Enemy::~Enemy()
 
 void Enemy::Exec()
 {
-
+	printf("Enemy‚ÌExec\n");
 }
 
 void Enemy::Draw()
 {
-
+	printf("Enemy‚ÌDraw\n");
 }
 
 // ˆø”‚Ì‹éŒ`î•ñ‚ÆA©•ª‚ª“–‚½‚Á‚Ä‚¢‚é‚©”»’è

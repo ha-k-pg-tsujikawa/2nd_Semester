@@ -9,6 +9,11 @@ public:
 	virtual ~Base();
 
 public:
+	// 継承先で、それぞれ処理の違うことが分かっている関数を
+	// 純粋仮想関数として基底クラスに宣言
+	virtual void Exec() = 0;
+	virtual void Draw() = 0;
+
 	// 引数の矩形情報と、自分が当たっているか判定
 	bool CheckHit(int x, int y, int width, int height);
 

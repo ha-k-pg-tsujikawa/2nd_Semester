@@ -15,11 +15,7 @@ void PrintHp(Base* target)
 
 int main()
 {
-    // 基底クラスのポインタ変数へ、継承先のクラスのアドレスを代入できる
-    //Base* player = new Player();
-    //Base* enemy = new Enemy();
-    // どちらもBaseクラスを継承しているので
-    // Baseのポインタ変数配列で一括管理することができる
+    // Baseのポインタ変数配列
     Base* array[] =
     {
         new Player(),
@@ -27,11 +23,12 @@ int main()
     };
     array[1]->SetHp(100);
 
-    // arrayを使って当たり判定をfor文で回す
     for (int i = 0; i < 2; i++)
     {
         if (array[i] != nullptr)
         {
+            array[i]->Exec();
+
             PrintHp(array[i]);
             if (array[i]->CheckHit(10, 10, 20, 30) == false)
             {
@@ -40,27 +37,17 @@ int main()
         }
     }
 
-    //player->SetMoveSpeed(5.0f);
-    //enemy->SetHp(100);
-
-    //if (player->CheckHit(10, 10, 20, 30) == false)
-    //{
-    //    printf("当たっていません\n");
-    //}
-    //if (enemy->CheckHit(10, 10, 20, 30) == false)
-    //{
-    //    printf("当たっていません\n");
-    //}
-
-    // delete player;
-    // delete enemy;
-
+    // 実体の破棄
     for (int i = 0; i < 2; i++)
     {
-        delete array[1];
-        array[1] = nullptr;
-
+        delete array[i];
+        array[i] = nullptr;
     }
+
+    //  純粋仮想関数を宣言したクラスは、
+    // 単体で実体化させることができなくなる
+    //Base base;
+    //Base* pBase = new Base();
 
     system("pause");
     return 0;
