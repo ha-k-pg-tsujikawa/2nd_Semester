@@ -30,7 +30,7 @@ int main()
     test.SetValue(1000);
     int ans = test.GetValue();
     // データを所得したいだけの時
-    // ポインタ変数の先に変更を加えらないことを保証ため
+    // ポインタ変数の先に変更を加えらないことを保証するため
     // const ポインタ変数を使うことが一般的
 
     const Test* pTest = &test;
