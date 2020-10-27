@@ -15,9 +15,8 @@ EnemyManager::~EnemyManager()
 	for (itr = m_Enemies.begin(); itr != m_Enemies.end(); ++itr)
 	{
 		// newで確保した各Enemyクラスを削除
-		Base* ptr = *itr;
-		delete* itr;
-		ptr = nullptr;
+		delete *itr;
+		*itr = nullptr;
 	}
 	// m_Enemiesにはnullptrが入ったBase*の配列が入っている
 	m_Enemies.clear();
@@ -29,11 +28,10 @@ class Base* EnemyManager::CreateEnemy(int enemy_type)
 	for (std::vector<Base*>::iterator itr = m_Enemies.begin(); itr != m_Enemies.end(); ++itr)
 	{
 		// 可変長配列に空きがあればそこに作る
-		Base* ptr = *itr;
-		if (ptr == nullptr)
+		if (*itr == nullptr)
 		{
-			ptr = new Enemy();
-			return ptr;
+			*itr = new Enemy();
+			return *itr;
 		}
 	}
 	// 空きがないので、新規で作ってpush_back
@@ -54,11 +52,10 @@ bool EnemyManager::DestoryEnemy(class Base* ptr)
 	for (std::vector<Base*>::iterator itr = m_Enemies.begin(); itr != m_Enemies.end(); ++itr)
 	{
 		// 可変長配列にptrと同じアドレスを持つものがあれば削除
-		Base* tmp = *itr;
-		if (tmp == ptr)
+		if (*itr == ptr)
 		{
-			delete tmp;
-			tmp = nullptr;
+			delete* itr;
+			*itr = nullptr;
 			return true;
 		}
 	}
@@ -70,9 +67,9 @@ void EnemyManager::Exec()
 {
 	for (std::vector<Base*>::iterator itr = m_Enemies.begin(); itr != m_Enemies.end(); ++itr)
 	{
-		Base* ptr = *itr;
-		if (ptr != nullptr)
+		if (*itr != nullptr)
 		{
+			Base* ptr = *itr;
 			ptr->Exec();
 		}
 	}
@@ -83,9 +80,9 @@ void EnemyManager::Draw()
 {
 	for (std::vector<Base*>::iterator itr = m_Enemies.begin(); itr != m_Enemies.end(); ++itr)
 	{
-		Base* ptr = *itr;
-		if (ptr != nullptr)
+		if (*itr != nullptr)
 		{
+			Base* ptr = *itr;
 			ptr->Draw();
 		}
 	}
@@ -96,9 +93,9 @@ class Base* EnemyManager::CheckHit(int x, int y, int width, int height)
 {
 	for (std::vector<Base*>::iterator itr = m_Enemies.begin(); itr != m_Enemies.end(); ++itr)
 	{
-		Base* ptr = *itr;
-		if (ptr != nullptr)
+		if (*itr != nullptr)
 		{
+			Base* ptr = *itr;
 			if (ptr->CheckHit(x, y, width, height))
 			{
 				return ptr;
