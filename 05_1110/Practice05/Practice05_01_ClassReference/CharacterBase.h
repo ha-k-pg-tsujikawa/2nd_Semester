@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CHARACTERBASE_H
+#define CHARACTERBASE_H
 
 class CharacterBase
 {
@@ -27,3 +28,4 @@ protected:
 	int Int;
 };
 
+#endif // !CHARACTERBASE_H
