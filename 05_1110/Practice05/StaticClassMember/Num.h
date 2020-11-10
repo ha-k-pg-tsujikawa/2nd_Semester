@@ -8,7 +8,9 @@ public:
 	void Print();
 
 private:
-	int m_Num;
+	// staticƒƒ“ƒo•Ï”‚Ìì‚è•û(éŒ¾)
+	// static Œ^–¼ •Ï”–¼
+	static int m_Num;
 };
 
 #endif // !NUM_H
